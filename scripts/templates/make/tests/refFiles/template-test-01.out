@@ -1,10 +1,10 @@
 WARNING: Building component "simpleExternalElement" with no links assigned.
-SimpleExternalElement-simpleExternalElement-> Config: maxRepeats=15, printFreq=5
-SimpleExternalElement-simpleExternalElement-> Component is participating in phase 0 of init.
-SimpleExternalElement-simpleExternalElement-> Component is being setup.
-SimpleExternalElement-simpleExternalElement-> Hello World!
-SimpleExternalElement-simpleExternalElement-> Hello World!
-SimpleExternalElement-simpleExternalElement-> Hello World!
-SimpleExternalElement-simpleExternalElement-> Component is participating in phase 0 of complete.
-SimpleExternalElement-simpleExternalElement-> Component is being finished.
+{{COMPONENT_NAME}}-example_component_name-> Config: maxRepeats=15, printFreq=5
+{{COMPONENT_NAME}}-example_component_name-> Component is participating in phase 0 of init.
+{{COMPONENT_NAME}}-example_component_name-> Component is being setup.
+{{COMPONENT_NAME}}-example_component_name-> Hello World!
+{{COMPONENT_NAME}}-example_component_name-> Hello World!
+{{COMPONENT_NAME}}-example_component_name-> Hello World!
+{{COMPONENT_NAME}}-example_component_name-> Component is participating in phase 0 of complete.
+{{COMPONENT_NAME}}-example_component_name-> Component is being finished.
 Simulation is complete, simulated time: 150 ns

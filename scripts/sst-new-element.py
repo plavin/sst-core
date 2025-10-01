@@ -49,8 +49,22 @@ def replace_text(filename: pathlib.Path, element_name: str, component_name: str)
   with open(filename, 'r') as file:
     filedata = file.read()
 
-  filedata = filedata.replace('ELEMENT_CAMEL_CASE', element_name)
-  filedata = filedata.replace('ELEMENT_PASCAL_CASE', component_name)
+  # Replace template strings
+  filedata = filedata.replace('{{ELEMENT_NAME}}', element_name)
+  filedata = filedata.replace('{{COMPONENT_NAME}}', component_name)
+  filedata = filedata.replace('{{ELEMENT_NAME_ALLCAPS}}', element_name.upper())
+
+  # Remove Sandia copyright
+  lines = filedata.splitlines()
+
+  end_comment = 0
+  stripped_lines = []
+  for idx, line in enumerate(lines):
+      if not (line.startswith('//') or line.strip() == ''):
+        end_comment = idx
+        break
+
+  filedata = '\n'.join(lines[end_comment:])
 
   with open(filename, 'w') as file:
       file.write(filedata)
@@ -76,12 +90,12 @@ if __name__ == "__main__":
   for file in dest_dir.glob('**/*'):
     if not file.is_dir():
       if 'template' in file.name:
-        new_name = file.name.replace('template', args.element_name, args.component_name)
+        new_name = file.name.replace('template', args.element_name)
         shutil.move(file, file.parent / new_name)
 
   for file in dest_dir.glob('**/*'):
     if not file.is_dir():
       print(file)
-      replace_text(file, args.element_name)
+      replace_text(file, args.element_name, args.component_name)
 
 
