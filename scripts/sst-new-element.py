@@ -85,14 +85,17 @@ if __name__ == "__main__":
   print(f'  Destination: {dest_dir}')
   print(f'  Build system: {build_system}')
 
+  # Copy template files
   shutil.copytree(template_dir/build_system, dest_dir)
 
+  # Rename template files with TEMPLATE in the name
   for file in dest_dir.glob('**/*'):
     if not file.is_dir():
       if 'TEMPLATE' in file.name:
         new_name = file.name.replace('TEMPLATE', args.element_name)
         shutil.move(file, file.parent / new_name)
 
+  # Replace text with element and component names
   for file in dest_dir.glob('**/*'):
     if not file.is_dir():
       replace_text(file, args.element_name, args.component_name)
