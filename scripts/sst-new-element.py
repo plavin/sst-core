@@ -89,13 +89,12 @@ if __name__ == "__main__":
 
   for file in dest_dir.glob('**/*'):
     if not file.is_dir():
-      if 'template' in file.name:
-        new_name = file.name.replace('template', args.element_name)
+      if 'TEMPLATE' in file.name:
+        new_name = file.name.replace('TEMPLATE', args.element_name)
         shutil.move(file, file.parent / new_name)
 
   for file in dest_dir.glob('**/*'):
     if not file.is_dir():
-      print(file)
       replace_text(file, args.element_name, args.component_name)
 
 
