@@ -25,7 +25,7 @@ def initializeTestModule_SingleInstance(class_inst):
 
 ################################################################################
 
-class testcase_sstexternalelement(SSTTestCase):
+class testcase_ELEMENT_LOWER_CASE(SSTTestCase):
 
     def initializeClass(self, testName):
         super(type(self), self).initializeClass(testName)
@@ -43,22 +43,22 @@ class testcase_sstexternalelement(SSTTestCase):
 
 #####
     
-    @unittest.skipIf(testing_check_get_num_ranks() > 1, "SSTExternalElement: simplElementExample-test-001 skipped if ranks > 1 - single component in config")
-    @unittest.skipIf(testing_check_get_num_threads() > 1, "SSTExternalElement: simplElementExample-test-001 skipped if threads > 1 - single component in config")
-    def test_sstexternalelement_001(self):
-        self.sstexternalelement_test_template("simpleElementExample-test-001")
+    @unittest.skipIf(testing_check_get_num_ranks() > 1, "ELEMENT_PASCAL_CASE: ELEMENT_CAMEL_CASE-test-01 skipped if ranks > 1 - single component in config")
+    @unittest.skipIf(testing_check_get_num_threads() > 1, "ELEMENT_PASCAL_CASE: ELEMENT_CAMEL_CASE-test-01 skipped if threads > 1 - single component in config")
+    def test_ELEMENT_LOWER_CASE_01(self):
+        self.ELEMENT_LOWER_CASE_test_template("ELEMENT_CAMEL_CASE-test-01")
 
 
 #####
 
-    def sstexternalelement_test_template(self, testcase):
+    def ELEMENT_LOWER_CASE_test_template(self, testcase):
         # Get the path to the test files
         test_path = self.get_testsuite_dir()
         outdir = self.get_test_output_run_dir()
         tmpdir = self.get_test_output_tmp_dir()
 
         # Set the various file paths
-        testDataFileName="sstexternalelement_{0}".format(testcase)
+        testDataFileName="ELEMENT_LOWER_CASE_{0}".format(testcase)
 
         sdlfile = "{0}/{1}.py".format(test_path, testcase)
         reffile = "{0}/refFiles/{1}.out".format(test_path, testcase)
@@ -76,7 +76,7 @@ class testcase_sstexternalelement(SSTTestCase):
         #       TESTS & RESULT FILES ARE STILL VALID
 
         # Perform the tests
-        self.assertFalse(os_test_file(errfile, "-s"), "sstexternalelement test {0} has Non-empty Error File {1}".format(testDataFileName, errfile))
+        self.assertFalse(os_test_file(errfile, "-s"), "ELEMENT_LOWER_CASE test {0} has Non-empty Error File {1}".format(testDataFileName, errfile))
 
         cmp_result = testing_compare_sorted_diff(testcase, outfile, reffile)
         if (cmp_result == False):
